@@ -1,0 +1,178 @@
+@import '@/assets/base.css';
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+body {
+    background-color: var(--cor-preto);
+    font-family: var(--font-rubik);
+}
+
+.transition_on *,
+.transition_on {
+    transition: ease 0.5s all !important;
+}
+
+.hero h2,
+.tecnologias h2,
+footer h2,
+.projetos h2 {
+    color: white;
+    max-width: 600px;
+    text-shadow: 4px 4px 4px rgba(52, 208, 158, 0.5);
+}
+
+.hero p,
+.projetos p {
+    color: var(--cor-cinza);
+}
+
+.card h3 {
+    color: var(--cor-branco);
+    font-size: 20px;
+}
+
+.tecnologias h2,
+footer h2,
+.projetos h2 {
+    text-shadow: none;
+}
+
+.tecnologias span,
+.projetos span {
+    width: 100%;
+}
+
+.tecnologias input,
+.projetos input {
+    background-color: var(--cor-preto);
+    color: var(--cor-branco);
+    width: 100%;
+    height: 35px;
+    border-radius: 6px;
+    outline: 1px solid var(--cor-branco);
+    transition: all 0.3s ease-in-out;
+}
+
+.tecnologias input:hover,
+.projetos input:hover,
+.tecnologias input:focus,
+.projetos input:focus {
+    outline: 1px solid var(--cor-verde);
+}
+
+.tecnologias i,
+.projetos i {
+    color: var(--cor-branco);
+    transition: all 0.5s;
+}
+
+@media (max-width: 991px) {
+    .mobile {
+        display: block !important;
+    }
+
+    .desktop {
+        display: none !important;
+    }
+
+    header .hamburguer-bt {
+        display: inline-block;
+        height: fit-content;
+        min-height: 32px;
+        margin: 27px 0px;
+        float: right;
+        cursor: pointer;
+    }
+
+    header .hamburguer-bt .hamburguer_line {
+        background: var(--cor-branco);
+        width: 30px;
+        height: 3px;
+        margin: 5px 0;
+    }
+
+    header .hamburguer-bt:hover .hamburguer_line {
+        background: var(--cor-verde);
+    }
+
+    header .hamburguer-bt.ativo .hamburguer-top {
+        transform: rotate(45deg);
+        margin-top: 11px;
+    }
+
+    header .hamburguer-bt.ativo .hamburguer-middle {
+        opacity: 0;
+    }
+
+    header .hamburguer-bt.ativo .hamburguer-bottom {
+        transform: rotate(-45deg);
+        margin-top: -16px;
+    }
+
+    header #opt_menu.ativo {
+        right: 0;
+    }
+
+    header #opt_menu {
+        position: fixed;
+        height: 100%;
+        width: 320px;
+        background: var(--cor-preto);
+        z-index: 99;
+        right: -150%;
+        top: 80px;
+        padding: 10px;
+        display: block;
+        overflow: auto;
+    }
+
+    header .fundo_menu.ativo {
+        right: 0;
+    }
+
+    header .fundo_menu {
+        background: #1c1b1b96;
+        width: 100%;
+        height: 100%;
+        top: 80px;
+        right: -100%;
+        position: fixed;
+        z-index: 89;
+    }
+
+    header ul {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    header ul a {
+        font-size: 20px;
+        margin-left: 0;
+        margin-bottom: 5px;
+    }
+
+    footer {
+        padding-top: 0 !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .projetos .card:hover img {
+        transform: translateY(-120px);
+    }
+}
+
+@media (max-width: 575px) {
+    .tecnologias .search {
+        bottom: 10px;
+    }
+}
+
+@media (max-width: 435px) {
+    .projetos .card {
+        overflow: hidden;
+        width: 100%;
+        height: 250px !important;
+        border-radius: 20px;
+    }
+}
