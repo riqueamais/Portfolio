@@ -8,20 +8,20 @@ body {
 
 .transition_on *,
 .transition_on {
-    transition: ease 0.5s all !important;
+    transition: ease-in-out 0.5s all !important;
 }
 
 .hero h2,
 .tecnologias h2,
 footer h2,
-.projetos h2 {
+.projetos-search h2 {
     color: white;
     max-width: 600px;
     text-shadow: 4px 4px 4px rgba(52, 208, 158, 0.5);
 }
 
 .hero p,
-.projetos p {
+.projetos-search p {
     color: var(--cor-cinza);
 }
 
@@ -31,18 +31,17 @@ footer h2,
 }
 
 .tecnologias h2,
-footer h2,
-.projetos h2 {
+.projetos-search h2 {
     text-shadow: none;
 }
 
 .tecnologias span,
-.projetos span {
+.projetos-search span {
     width: 100%;
 }
 
 .tecnologias input,
-.projetos input {
+.projetos-search input {
     background-color: var(--cor-preto);
     color: var(--cor-branco);
     width: 100%;
@@ -55,14 +54,42 @@ footer h2,
 .tecnologias input:hover,
 .projetos input:hover,
 .tecnologias input:focus,
-.projetos input:focus {
+.projetos-search input:focus {
     outline: 1px solid var(--cor-verde);
 }
 
 .tecnologias i,
-.projetos i {
+.projetos-search i {
     color: var(--cor-branco);
     transition: all 0.5s;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--cor-preto);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--cor-cinza);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+
+@media (max-width: 1200px) {
+    .projetos .background {
+        height: 300px !important;
+    }
+
+    .projetos .card {
+        height: 590px !important;
+    }
 }
 
 @media (max-width: 991px) {
@@ -151,14 +178,24 @@ footer h2,
         margin-bottom: 5px;
     }
 
-    footer {
-        padding-top: 0 !important;
+    .projetos .card {
+        height: 510px !important;
+    }
+
+    .projetos p {
+        height: 170px !important;
     }
 }
 
 @media (min-width: 992px) {
-    .projetos .card:hover img {
+    .projetos .card img:hover {
         transform: translateY(-120px);
+    }
+}
+
+@media (max-width: 767px) {
+    .projetos p {
+        height: 120px !important;
     }
 }
 
@@ -166,13 +203,26 @@ footer h2,
     .tecnologias .search {
         bottom: 10px;
     }
+
+    .projetos .background {
+        height: 250px !important;
+    }
+
+    .projetos p {
+        height: 170px !important;
+    }
 }
 
-@media (max-width: 435px) {
+@media (max-width: 475px) {
     .projetos .card {
-        overflow: hidden;
-        width: 100%;
-        height: 250px !important;
-        border-radius: 20px;
+        height: 420px !important;
+    }
+
+    .projetos .background {
+        height: 210px !important;
+    }
+
+    .projetos p {
+        height: 120px !important;
     }
 }

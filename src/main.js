@@ -1,3 +1,4 @@
+/* eslint-disable vue/multi-word-component-names */
 import PrimeVueButton from 'primevue/button';
 import 'primeicons/primeicons.css'
 import PrimeVue from 'primevue/config';
@@ -6,6 +7,9 @@ import 'primevue/resources/themes/lara-dark-teal/theme.css';
 import './assets/main.css';
 import InputText from 'primevue/inputtext';
 import Tooltip from 'primevue/tooltip';
+import Skeleton from 'primevue/skeleton';
+import Card from 'primevue/card';
+
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -15,14 +19,8 @@ import App from './App.vue';
 import router from './router';
 
 const app = createApp(App);
-app.use(PrimeVue);
-app.component('PrimeVueButton', PrimeVueButton);
-app.component('InputText', InputText);
-
-app.use(AOS)
-
-app.use(router);
-app.use(bootstrap);
+app.use(PrimeVue).use(AOS).use(router).use(bootstrap);
+app.component('PrimeVueButton', PrimeVueButton).component('InputText', InputText).component('Skeleton', Skeleton).component('Card', Card);
 
 app.directive('tooltip', Tooltip);
 

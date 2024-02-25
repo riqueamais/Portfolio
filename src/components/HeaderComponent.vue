@@ -1,6 +1,7 @@
 <script setup>
 import MenuComponent from './MenuComponent.vue';
 import MenuAbertoComponent from './MenuAbertoComponent.vue';
+import { toggleTheme, buttonIcon } from '@/assets/menu';
 
 </script>
 
@@ -8,16 +9,18 @@ import MenuAbertoComponent from './MenuAbertoComponent.vue';
     <header class="transition_on">
         <div class="container">
             <div class="row align-items-center">
-                <div data-aos="fade-right" class="col-10">
+                <div data-aos="fade-right" class="col-9">
                     <RouterLink to="/" class="logo">
-                        <img src="../assets/logo-white.png" alt="logo-henrique-quintino">
+                        <img src="/logo-white.png" alt="logo-henrique-quintino">
                         <h1>Portfólio</h1>
                     </RouterLink>
                 </div>
-                <div data-aos="fade-left" class="col-2 desktop">
-                    <nav class="d-flex justify-content-end">
+                <div data-aos="fade-left" class="col-3 desktop">
+                    <nav class="d-flex justify-content-around align-items-center">
                         <RouterLink to="/" :class="{ 'active-link': $route.path === '/' }">Home</RouterLink>
-                        <RouterLink to="/projetos" :class="{ 'active-link': $route.path === '/projetos' }">Projetos</RouterLink>
+                        <RouterLink to="/projetos" :class="{ 'active-link': $route.path === '/projetos' }">Projetos
+                        </RouterLink>
+                        <PrimeVueButton :icon="buttonIcon" @click="toggleTheme" />
                     </nav>
                 </div>
                 <MenuComponent />
@@ -38,7 +41,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 9999;
     transition: all 0.3s ease-in-out;
 }
 
@@ -53,6 +56,20 @@ header .logo {
 header .logo h1 {
     font-size: 18px;
     margin: 0;
+}
+
+header button {
+    border-radius: 25%;
+    background: #27272a;
+    border: 0;
+    color: var(--cor-branco);
+    border: 1px solid var(--cor-verde);
+    width: 30px;
+    height: 30px;
+}
+
+header button:focus {
+    border: none;
 }
 
 header img {
@@ -96,7 +113,7 @@ header .logo:hover h1 {
 }
 
 .active-link {
-    color: var(--cor-verde);
+    color: var(--cor-verde) !important;
+    border-bottom: 2px solid var(--cor-verde);
 }
-
 </style>

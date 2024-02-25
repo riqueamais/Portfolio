@@ -30,14 +30,14 @@ onMounted(() => {
     width: 100%;
     height: 31px;
     align-items: center;
-    transition: transform 1s cubic-bezier(.5, 2.5, .7, .7);
+    transition: all 0.5s ease-in-out;
     box-shadow: none;
 }
 
 .btn:hover {
     background-color: var(--cor-branco);
     transform: scale(1.1);
-    box-shadow: 4px 4px 4px var(--cor-verde);
+    box-shadow: 4px 4px 10px var(--cor-verde);
     transform: translateY(-4px);
     transition: all 0.5s;
 }

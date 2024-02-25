@@ -5,3 +5,120 @@
     --cor-cinza: gray;
     --font-rubik: 'Rubik', sans-serif;
 }
+
+/*---------------------------------
+    Light Theme
+---------------------------------*/
+
+.light-theme {
+    background-color: #F8FAFC;
+}
+
+.light-theme header,
+.light-theme .projetos .dropdown-content ul li {
+    border-bottom: 1px solid #92b8f5;
+}
+
+.light-theme header,
+.light-theme footer,
+.light-theme .projetos .filter,
+.light-theme .projetos .dropdown-content,
+.light-theme .projetos .card {
+    background-color: #1E293B;
+}
+
+.light-theme .active-link {
+    border-bottom: 2px solid #92b8f5 !important;
+    color: #92b8f5 !important;
+}
+
+.light-theme .active-link:hover {
+    color: #92b8f5 !important;
+}
+
+.light-theme .hero h2,
+.light-theme .tecnologias h2,
+.light-theme .projetos-search h2,
+.light-theme .hero span,
+.light-theme .projetos .type, .light-theme .p-message.p-message-info, .light-theme .p-message .p-icon {
+    color: #1E293B !important;
+}
+
+.light-theme .hero h2 {
+    text-shadow: 4px 4px 4px #92b8f5;
+}
+
+.light-theme .btn,
+.light-theme .btn:hover,
+.light-theme .projetos .dropdown-container:hover .filter {
+    background-color: #1E293B;
+    color: #F8FAFC !important;
+}
+
+.light-theme .btn:hover {
+    box-shadow: 4px 4px 4px #92b8f5;
+}
+
+.light-theme .p-skeleton {
+    background-color: rgb(248, 250, 252, 0.78);
+}
+
+.light-theme .tecnologias input,
+.light-theme .projetos-search input,
+.light-theme .tecnologias .card,
+.light-theme header #opt_menu {
+    background-color: #1E293B !important;
+}
+
+.light-theme .tecnologias input:hover,
+.light-theme .projetos input:hover,
+.light-theme .tecnologias input:focus,
+.light-theme .projetos-search input:focus {
+    outline-color: #92b8f5 !important;
+}
+
+.light-theme .projetos .card,
+.light-theme footer .container {
+    border-color: #1E293B;
+}
+
+.light-theme .tecnologias .card {
+    border-color: #92b8f5;
+}
+
+.light-theme footer .container {
+    border-color: #F8FAFC;
+}
+
+.light-theme .card h3,
+.light-theme footer i,
+.light-theme header a h1:hover,
+.light-theme header a:hover h1,
+.light-theme header a,
+.light-theme header a:hover,
+.light-theme header .logo:hover,
+.light-theme .projetos .filter,
+.light-theme .projetos ul {
+    color: #F8FAFC !important;
+}
+
+.light-theme header .hamburguer-bt:hover .hamburguer_line {
+    background: #92b8f5;
+}
+
+.light-theme .default-color:after,
+.light-theme .default-color:before {
+    border: 3px solid #92b8f5;
+}
+
+.light-theme .p-button:focus {
+    box-shadow: 0 0 0 2px #1c2127, 0 0 0 4px #92b8f5, 0 1px 2px 0 rgba(0, 0, 0, 0);
+}
+
+.light-theme header button {
+    border: 1px solid #92b8f5;
+}
+
+.light-theme .p-skeleton:after {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0));
+}
