@@ -5,36 +5,36 @@ import Message from 'primevue/message';
 
 let dialogMessage = "made by Henrique Quintino";
 
-// function showMessage() {
-//   const messageElement = document.querySelector('.p-message.p-message-info');
-//   messageElement.style.opacity = '1';
+function showMessage() {
+  const messageElement = document.querySelector('.p-message.p-message-info');
+  messageElement.style.opacity = '1';
 
-//   messageElement.style.animation = 'none';
-//   messageElement.offsetHeight;
-//   messageElement.style.animation = null;
+  messageElement.style.animation = 'none';
+  messageElement.offsetHeight;
+  messageElement.style.animation = null;
 
-//   setTimeout(() => {
-//     messageElement.style.animation = 'fadeOut 2s';
-//     messageElement.style.opacity = '0';
-//   }, 2000);
-// }
+  setTimeout(() => {
+    messageElement.style.animation = 'fadeOut 2s';
+    messageElement.style.opacity = '0';
+  }, 2000);
+}
 
-// window.addEventListener('contextmenu', function (event) {
-//   event.preventDefault();
-//   showMessage();
-// });
+window.addEventListener('contextmenu', function (event) {
+  event.preventDefault();
+  showMessage();
+});
 
-// window.addEventListener('keyup', function (event) {
-//   if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'c' || event.key === 'F12') {
-//     showMessage();
-//   }
-// });
+window.addEventListener('keyup', function (event) {
+  if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'c' || event.key === 'F12') {
+    showMessage();
+  }
+});
 
-// window.addEventListener('keydown', function (event) {
-//   if ((event.ctrlKey || event.metaKey) && event.shiftKey && (event.key.toLowerCase() === 'c') || (event.key === 'F12')) {
-//     event.preventDefault();
-//   }
-// });
+window.addEventListener('keydown', function (event) {
+  if ((event.ctrlKey || event.metaKey) && event.shiftKey && (event.key.toLowerCase() === 'c') || (event.key === 'F12')) {
+    event.preventDefault();
+  }
+});
 
 </script>
 

@@ -1,10 +1,42 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
+import { getDatabase, ref as rtdbRef, onValue } from 'firebase/database';
+import firebaseApp from '@/firebase';
+
+const numProjetos = ref(4);
 
 const isDropdownVisible = ref(false);
 const buttonIcon = ref('pi pi-angle-down');
 const searchTerm = ref('');
 const selectedType = ref('All');
+const projetos = ref([]);
+const isLoading = ref(true);
+
+const db = getDatabase(firebaseApp);
+const projetosRef = rtdbRef(db, 'projetos');
+
+const fetchProjetos = () => {
+    setTimeout(() => {
+        onValue(projetosRef, (snapshot) => {
+            const projetosData = snapshot.val();
+            if (projetosData) {
+                projetos.value = Object.values(projetosData);
+                isLoading.value = false; // Define isLoading como false após o carregamento dos projetos
+            }
+        });
+    }, 2000); // Aguarda 1 segundo antes de buscar os dados
+};
+
+fetchProjetos();
+
+onMounted(() => {
+  onValue(projetosRef, (snapshot) => {
+    const projetosData = snapshot.val();
+    if (projetosData) {
+      numProjetos.value = Object.values(projetosData).length; // Atualiza a variável com a quantidade real de projetos
+    }
+  });
+});
 
 const toggleDropdown = () => {
     // Verifica se a largura da tela é menor ou igual a 991px antes de processar o clique
@@ -28,49 +60,6 @@ const hideDropdown = () => {
     }
 };
 
-const projetos = ref([
-    {
-        photo: "guadalupe-img.webp",
-        name: "Restaurante Guadalupe",
-        type: "Landing Pages",
-        link: "https://guadalupecocina.com.br",
-        icons: "html.png, css.png, javaScript.png, bootstrap.png, wordPress.png",
-        description: "Faça sua reserva agora e venha conhecer o restaurante mexicano mais tradicional da cidade de Santos."
-    },
-    {
-        photo: "10km-img.webp",
-        name: "10KM TribunaFM",
-        type: "Landing Pages",
-        link: "https://10kmtribunafm.com.br",
-        icons: "html.png, css.png, javaScript.png, bootstrap.png, wordPress.png",
-        description: "No dia 19 de maio de 2024, a cidade de Santos se tornará palco da 38ª edição da prova de pedestrianismo 10 KM TRIBUNA FM."
-    },
-    {
-        photo: "leadmkt-img.webp",
-        name: "Lead MKT",
-        type: "Landing Pages",
-        link: "https://www.leadmktlocal.com.br",
-        icons: "html.png, css.png, javaScript.png, bootstrap.png, wordPress.png",
-        description: "ESPECIALISTAS EM COLOCAR SEU NEGÓCIO NO TOPO!, Somos a Lead Local, especialistas em Google Meu Negócio, atuando há mais de 5 anos no crescimento da presença digital de mais de 300 empresas de todo o país. Através de nossas técnicas avançadas de SEO, geramos resultados reais na sua ficha no Google."
-    },
-    {
-        photo: "imperium-img.webp",
-        name: "Impérium Móveis",
-        type: "Sites",
-        link: "https://sejaimperium.com.br",
-        icons: "html.png, css.png, javaScript.png, bootstrap.png, wordPress.png",
-        description: "A Impérium Móveis é o resultado do sonho compartilhado pelos irmãos Mohamad e Samir em abril de 2017. Superando adversidades para conquistar vitórias notáveis, Na Impérium Móveis, a maestria está em toda operação, do atendimento à entrega. Oferecemos desde decoração até móveis planejados, do closet à cozinha."
-    },
-    {
-        photo: "facilita-img.webp",
-        name: "Facilità Eventos",
-        type: "Sites",
-        link: "https://facilitaeventos.com.br",
-        icons: "html.png, css.png, javaScript.png, bootstrap.png, wordPress.png",
-        description: "Empresa especializada em coffee breaks e eventos corporativos na Baixada Santista desde 2010, com foco em trazer profissionalismo ao segmento de catering. Prioriza uma experiência gastronômica excepcional, utilizando ingredientes frescos e selecionados, preparados por talentosas chefs, para garantir uma explosão de sabor e prazer em cada mordida."
-    }
-]);
-
 const selectType = (type) => {
     selectedType.value = type;
     isDropdownVisible.value = false;
@@ -88,13 +77,7 @@ const filteredprojetos = computed(() => {
     });
 
     return filtered;
-});
-
-const isLoading = ref(true);
-
-setTimeout(() => {
-    isLoading.value = false;
-}, 1700);
+}); 
 
 const getIcons = (tecnologiaIcons) => {
     if (tecnologiaIcons) {
@@ -103,7 +86,6 @@ const getIcons = (tecnologiaIcons) => {
     }
     return [];
 };
-
 </script>
 
 <template>
@@ -141,7 +123,7 @@ const getIcons = (tecnologiaIcons) => {
 
                 <div v-if="isLoading" class="container">
                     <div class="row">
-                        <div v-for="item in filteredprojetos" :key="item.name" class="col-xl-6 col-lg-6 col-12 mb-5">
+                        <div v-for="index in numProjetos" :key="index" class="col-xl-6 col-lg-6 col-12 mb-5">
                             <Card class="mb-3 card">
                                 <template #header>
                                     <Skeleton class="background" height="320px"></Skeleton>
@@ -170,7 +152,7 @@ const getIcons = (tecnologiaIcons) => {
                                 <template #header>
                                     <div class="background">
                                         <a :href="item.link" target="_blank">
-                                            <img :src="item.photo" :alt="item.name" @load="isLoading = false" loading="lazy">
+                                            <img :src="item.photo" :alt="item.name" loading="lazy">
                                         </a>
                                     </div>
                                 </template>
@@ -180,7 +162,7 @@ const getIcons = (tecnologiaIcons) => {
                                 <template #subtitle>
                                     <div class="d-flex">
                                         <img class="icons" v-for="icon in getIcons(item.icons)" :key="icon"
-                                            :src="(`${icon}`)" :alt="icon">
+                                            :src="`${icon}`" :alt="icon">
                                     </div>
                                 </template>
                                 <template #content>
@@ -238,9 +220,10 @@ section.projetos-search {
 
 .projetos p {
     color: #a1a1aa;
-    overflow-y: overlay;
-    scrollbar-width: thin;
+    overflow-y: auto;
+    scrollbar-width: auto;
     scrollbar-color: var(--cor-preto) var(--cor-branco);
+    font-size: 14px;
 }
 
 .projetos .type {

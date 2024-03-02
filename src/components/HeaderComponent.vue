@@ -16,7 +16,7 @@ import { toggleTheme, buttonIcon } from '@/assets/menu';
                     </RouterLink>
                 </div>
                 <div data-aos="fade-left" class="col-3 desktop">
-                    <nav class="d-flex justify-content-around align-items-center">
+                    <nav class="d-flex justify-content-between align-items-center">
                         <RouterLink to="/" :class="{ 'active-link': $route.path === '/' }">Home</RouterLink>
                         <RouterLink to="/projetos" :class="{ 'active-link': $route.path === '/projetos' }">Projetos
                         </RouterLink>

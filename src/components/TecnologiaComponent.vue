@@ -69,6 +69,11 @@ const tecnologias = ref([
         type: "Languages"
     },
     {
+        photo: "typescript.png",
+        name: "TypeScript",
+        type: "Languages"
+    },
+    {
         photo: "bootstrap.png",
         name: "Bootstrap",
         type: "Frameworks"
@@ -79,9 +84,9 @@ const tecnologias = ref([
         type: "System"
     },
     {
-        photo: "typescript.png",
-        name: "TypeScript",
-        type: "Languages"
+        photo: "firebase.png",
+        name: "Firebase",
+        type: "System"
     }
 ]);
 
@@ -125,8 +130,9 @@ const getColorClass = (tecnologiaName) => {
         html: 'html-color',
         css: 'css-color',
         javascript: 'javascript-color',
+        typescript: 'typescript-color',
         bootstrap: 'bootstrap-color',
-        typescript: 'typescript-color'
+        firebase: 'firebase-color'
     };
 
     return colors[tecnologiaName.toLowerCase()] || 'default-color';
@@ -200,14 +206,19 @@ const getColorClass = (tecnologiaName) => {
     border: 3px solid #F8DC3E;
 }
 
+.typescript-color:after,
+.typescript-color:before {
+    border: 3px solid #3178C6;
+}
+
 .bootstrap-color:after,
 .bootstrap-color:before {
     border: 3px solid #7952B3;
 }
 
-.typescript-color:after,
-.typescript-color:before {
-    border: 3px solid #3178C6;
+.firebase-color:after,
+.firebase-color:before {
+    border: 3px solid #FDA612;
 }
 
 .default-color:after,
