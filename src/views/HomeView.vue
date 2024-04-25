@@ -8,15 +8,15 @@ import TecnologiaComponent from '@/components/TecnologiaComponent.vue'
   <section data-aos="fade-right" class="hero">
     <div class="container">
       <div class="row">
-        <div class="col-12 d-flex flex-column">
-          <h2>Hey, I'm Henrique Quintino - Front-End Developer</h2>
+        <div class="col-12 mb-5 d-flex flex-column">
+          <h2>Hey, I'm Henrique Quintino <br> Front-end Developer</h2>
           <p>Transformando ideias em realidade.</p>
           <h3>
             <span>Coding</span>
             <PingComponent />
           </h3>
+          <BtnComponent />
         </div>
-        <BtnComponent />
       </div>
     </div>
   </section>
@@ -117,17 +117,17 @@ section.tecnologias {
 }
 
 .tecnologias .card {
-    background: transparent;
-    width: 100%;
-    align-items: center;
-    padding: 10px;
-    cursor: default;
-    border: 1px solid var(--cor-branco);
-    transition: all 0.5s ease-in-out;
+  background: transparent;
+  width: 100%;
+  align-items: center;
+  padding: 10px;
+  cursor: default;
+  border: 1px solid var(--cor-branco);
+  transition: all 0.5s ease-in-out;
 }
 
 .tecnologias .card img {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 </style>

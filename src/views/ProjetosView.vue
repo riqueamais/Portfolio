@@ -16,26 +16,24 @@ const db = getDatabase(firebaseApp);
 const projetosRef = rtdbRef(db, 'projetos');
 
 const fetchProjetos = () => {
-    setTimeout(() => {
-        onValue(projetosRef, (snapshot) => {
-            const projetosData = snapshot.val();
-            if (projetosData) {
-                projetos.value = Object.values(projetosData);
-                isLoading.value = false; // Define isLoading como false após o carregamento dos projetos
-            }
-        });
-    }, 2000); // Aguarda 1 segundo antes de buscar os dados
+    onValue(projetosRef, (snapshot) => {
+        const projetosData = snapshot.val();
+        if (projetosData) {
+            projetos.value = Object.values(projetosData).filter(projeto => !projeto.draft); // Filtra apenas projetos não rascunho
+            isLoading.value = false; // Define isLoading como false após o carregamento dos projetos
+        }
+    });
 };
 
 fetchProjetos();
 
 onMounted(() => {
-  onValue(projetosRef, (snapshot) => {
-    const projetosData = snapshot.val();
-    if (projetosData) {
-      numProjetos.value = Object.values(projetosData).length; // Atualiza a variável com a quantidade real de projetos
-    }
-  });
+    onValue(projetosRef, (snapshot) => {
+        const projetosData = snapshot.val();
+        if (projetosData) {
+            numProjetos.value = Object.values(projetosData).length; // Atualiza a variável com a quantidade real de projetos
+        }
+    });
 });
 
 const toggleDropdown = () => {
@@ -77,7 +75,7 @@ const filteredprojetos = computed(() => {
     });
 
     return filtered;
-}); 
+});
 
 const getIcons = (tecnologiaIcons) => {
     if (tecnologiaIcons) {
@@ -128,12 +126,15 @@ const getIcons = (tecnologiaIcons) => {
                                 <template #header>
                                     <Skeleton class="background" height="320px"></Skeleton>
                                 </template>
+
                                 <template #title>
                                     <Skeleton width="210px"></Skeleton>
                                 </template>
+
                                 <template #subtitle>
                                     <Skeleton width="120px"></Skeleton>
                                 </template>
+
                                 <template #content>
                                     <Skeleton width="100%" class="mb-3"></Skeleton>
                                     <Skeleton width="90%" class="mb-3"></Skeleton>
@@ -149,6 +150,7 @@ const getIcons = (tecnologiaIcons) => {
                         <div v-for="item in filteredprojetos" :key="item.name" class="col-xl-6 col-lg-6 col-12 mb-5"
                             data-aos="zoom-in">
                             <Card class="mb-3 card">
+
                                 <template #header>
                                     <div class="background">
                                         <a :href="item.link" target="_blank">
@@ -156,15 +158,18 @@ const getIcons = (tecnologiaIcons) => {
                                         </a>
                                     </div>
                                 </template>
+
                                 <template #title>
                                     <h3>{{ item.name }}</h3>
                                 </template>
+
                                 <template #subtitle>
                                     <div class="d-flex">
                                         <img class="icons" v-for="icon in getIcons(item.icons)" :key="icon"
                                             :src="`${icon}`" :alt="icon">
                                     </div>
                                 </template>
+
                                 <template #content>
                                     <p class="m-0">
                                         {{ item.description }}
@@ -195,7 +200,7 @@ section.projetos-search {
     border-radius: 20px;
     background-color: transparent;
     border-color: #212529;
-    height: 564px;
+    height: 584px;
 }
 
 .projetos .card img {
@@ -222,8 +227,31 @@ section.projetos-search {
     color: #a1a1aa;
     overflow-y: auto;
     scrollbar-width: auto;
-    scrollbar-color: var(--cor-preto) var(--cor-branco);
     font-size: 14px;
+}
+
+#projetos p::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+#projetos p::-webkit-scrollbar-track {
+    background-color: var(--cor-preto);
+}
+
+#projetos p::-webkit-scrollbar-thumb {
+    background-color: var(--cor-cinza);
+    border-radius: 5px;
+    /* Adiciona border-radius */
+}
+
+#projetos p::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+/* Remove as setas da scrollbar */
+#projetos p::-webkit-scrollbar-button {
+    display: none;
 }
 
 .projetos .type {

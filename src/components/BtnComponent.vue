@@ -10,12 +10,8 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="col-xl-2 col-lg-2 col-sm-4 mt-3">
-        <a class="btn"
-            href="mailto:henrique.quintino99@gmail.com?subject=Oi Henrique quero transformar minhas ideias em realidade"
-            ref="myElement">Contact
-            Me</a>
-    </div>
+    <a class="btn mt-2" href="/Currículo - Henrique Quintino.pdf" target="_blank" ref="myElement">Currículo</a>
+
 </template>
 
 <style>
@@ -27,7 +23,7 @@ onMounted(() => {
     font-weight: 500;
     color: var(--cor-preto);
     background: var(--cor-branco);
-    width: 100%;
+    width: 195px;
     height: 31px;
     align-items: center;
     transition: all 0.5s ease-in-out;

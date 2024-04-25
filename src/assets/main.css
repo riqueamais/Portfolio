@@ -206,7 +206,11 @@ footer h2,
     }
 }
 
-
+@media (max-width: 767px) {
+    .btn {
+        width: 100% !important;
+    }
+}
 
 @media (max-width: 575px) {
     .tecnologias .search {

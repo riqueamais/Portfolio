@@ -6,16 +6,18 @@ export function toggleMenu() {
     isMenuOpen.value = !isMenuOpen.value;
 }
 
-const isDarkTheme = ref(false);
-export const buttonIcon = ref('pi pi-moon');
+// Estado inicial do tema baseado na preferência do sistema ou do usuário
+const isDarkTheme = ref(detectSystemTheme() === 'dark');
+export const buttonIcon = ref(isDarkTheme.value ? 'pi pi-sun' : 'pi pi-moon');
 
 export function toggleTheme() {
-    applyTheme(isDarkTheme.value ? 'dark' : 'light');
-    buttonIcon.value = isDarkTheme.value ? 'pi pi-moon' : 'pi pi-sun';
     isDarkTheme.value = !isDarkTheme.value;
+    applyTheme();
+    buttonIcon.value = isDarkTheme.value ? 'pi pi-sun' : 'pi pi-moon';
 }
 
 function detectSystemTheme() {
+    // Verifica a preferência do usuário para o tema
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         return 'dark';
     } else {
@@ -23,24 +25,20 @@ function detectSystemTheme() {
     }
 }
 
-function applyTheme(theme) {
-    if (theme === 'dark') {
-        document.body.classList.add('dark-theme');
-        document.body.classList.remove('light-theme');
-        document.getElementById('favicon').href = 'favicon.ico';
-    } else {
-        document.body.classList.remove('dark-theme');
-        document.body.classList.add('light-theme');
-        document.getElementById('favicon').href = 'favicon-dark.ico';
-    }
+function applyTheme() {
+    const theme = isDarkTheme.value ? 'dark' : 'light';
+    document.body.classList.toggle('dark-theme', isDarkTheme.value);
+    document.body.classList.toggle('light-theme', !isDarkTheme.value);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    var systemTheme = detectSystemTheme();
-    applyTheme(systemTheme);
+document.addEventListener('DOMContentLoaded', () => {
+    // Aplica o tema baseado na detecção do tema do sistema ou preferência do usuário
+    const systemTheme = detectSystemTheme();
+    isDarkTheme.value = systemTheme === 'dark';
+    applyTheme();
 });
 
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-    var newTheme = e.matches ? 'dark' : 'light';
-    applyTheme(newTheme);
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    isDarkTheme.value = e.matches;
+    applyTheme();
 });

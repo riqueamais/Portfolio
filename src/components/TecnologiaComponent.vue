@@ -54,13 +54,18 @@ const tecnologias = ref([
         type: "Frameworks"
     },
     {
+        photo: "angular.webp",
+        name: "Angular",
+        type: "Frameworks"
+    },
+    {
         photo: "html.png",
-        name: "Html",
+        name: "HTML",
         type: "Languages"
     },
     {
         photo: "css.png",
-        name: "Css",
+        name: "CSS",
         type: "Languages"
     },
     {
@@ -76,6 +81,11 @@ const tecnologias = ref([
     {
         photo: "bootstrap.png",
         name: "Bootstrap",
+        type: "Frameworks"
+    },
+    {
+        photo: "tailwindcss.png",
+        name: "Tailwind CSS",
         type: "Frameworks"
     },
     {
@@ -132,10 +142,14 @@ const getColorClass = (tecnologiaName) => {
         javascript: 'javascript-color',
         typescript: 'typescript-color',
         bootstrap: 'bootstrap-color',
-        firebase: 'firebase-color'
+        tailwindcss: 'tailwindcss-color',
+        firebase: 'firebase-color',
+        angular: 'angular-color'
     };
 
-    return colors[tecnologiaName.toLowerCase()] || 'default-color';
+    const tecnologiaKey = tecnologiaName.replace(/\s/g, '').toLowerCase();
+
+    return colors[tecnologiaKey] || 'default-color';
 };
 
 </script>
@@ -216,9 +230,22 @@ const getColorClass = (tecnologiaName) => {
     border: 3px solid #7952B3;
 }
 
+.tailwindcss-color:after,
+.tailwindcss-color:before {
+    border: 3px solid #2572B8;
+}
+
 .firebase-color:after,
 .firebase-color:before {
     border: 3px solid #FDA612;
+}
+
+.angular-color:after {
+    border: 3px solid #F30B45;
+}
+
+.angular-color:before {
+    border: 3px solid #A523ED;
 }
 
 .default-color:after,
