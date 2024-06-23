@@ -79,7 +79,7 @@ const time = computed(() => {
                     {{ slotProps.item.date }}
                   </template>
                   <template #content>
-                    <img v-if="slotProps.item.image" :src="`/public/${slotProps.item.image}`" :alt="slotProps.item.name" class="banner shadow-sm" />
+                    <img v-if="slotProps.item.image" :src="`${slotProps.item.image}`" :alt="slotProps.item.name" class="banner shadow-sm" />
                     <p>
                       {{ slotProps.item.text }}
                     </p>
