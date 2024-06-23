@@ -39,8 +39,11 @@
 .light-theme .hero h2,
 .light-theme .tecnologias h2,
 .light-theme .projetos-search h2,
+.light-theme .carreira h2,
 .light-theme .hero span,
-.light-theme .projetos .type, .light-theme .p-message.p-message-info, .light-theme .p-message .p-icon {
+.light-theme .projetos .type,
+.light-theme .p-message.p-message-info,
+.light-theme .p-message .p-icon {
     color: #1E293B !important;
 }
 
@@ -66,7 +69,8 @@
 .light-theme .tecnologias input,
 .light-theme .projetos-search input,
 .light-theme .tecnologias .card,
-.light-theme header #opt_menu {
+.light-theme header #opt_menu,
+.light-theme .carreira .card .p-card {
     background-color: #1E293B !important;
 }
 

@@ -97,6 +97,21 @@ const tecnologias = ref([
         photo: "firebase.png",
         name: "Firebase",
         type: "System"
+    },
+    {
+        photo: "github.png",
+        name: "GitHub",
+        type: "System"
+    },
+    {
+        photo: "jira.png",
+        name: "Jira",
+        type: "System"
+    },
+    {
+        photo: "basecamp.png",
+        name: "Basecamp",
+        type: "System"
     }
 ]);
 
@@ -144,7 +159,9 @@ const getColorClass = (tecnologiaName) => {
         bootstrap: 'bootstrap-color',
         tailwindcss: 'tailwindcss-color',
         firebase: 'firebase-color',
-        angular: 'angular-color'
+        angular: 'angular-color',
+        jira: 'jira-color',
+        basecamp: 'basecamp-color'
     };
 
     const tecnologiaKey = tecnologiaName.replace(/\s/g, '').toLowerCase();
@@ -246,6 +263,16 @@ const getColorClass = (tecnologiaName) => {
 
 .angular-color:before {
     border: 3px solid #A523ED;
+}
+
+.jira-color:after,
+.jira-color:before {
+    border: 3px solid #2185FF;
+}
+
+.basecamp-color:after,
+.basecamp-color:before {
+    border: 3px solid #FDD800;
 }
 
 .default-color:after,

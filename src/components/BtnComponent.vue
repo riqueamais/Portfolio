@@ -1,17 +1,9 @@
-<script setup>
-import { ref, onMounted } from 'vue';
-import { gsap } from 'gsap';
-
-const myElement = ref(null);
-
-onMounted(() => {
-    gsap.from(myElement.value, { opacity: 0, duration: 1, y: 50 });
-});
-</script>
+<script setup></script>
 
 <template>
-    <a class="btn mt-2" href="/Currículo - Henrique Quintino.pdf" target="_blank" ref="myElement">Currículo</a>
-
+    <a class="btn mt-2"
+        href="mailto:henrique.quintino99@gmail.com?subject=Oi Henrique quero transformar minhas ideias em realidade"
+        target="_blank">Contato</a>
 </template>
 
 <style>

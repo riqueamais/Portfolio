@@ -14,7 +14,8 @@ body {
 .hero h2,
 .tecnologias h2,
 footer h2,
-.projetos-search h2 {
+.projetos-search h2,
+.carreira h2 {
     color: white;
     max-width: 600px;
     text-shadow: 4px 4px 4px rgba(52, 208, 158, 0.5);
@@ -31,7 +32,8 @@ footer h2,
 }
 
 .tecnologias h2,
-.projetos-search h2 {
+.projetos-search h2,
+.carreira h2 {
     text-shadow: none;
 }
 
@@ -98,6 +100,10 @@ footer h2,
 
     .projetos p {
         height: 170px !important;
+    }
+
+    .tecnologias .card {
+        min-height: 120px !important;
     }
 }
 
@@ -237,5 +243,9 @@ footer h2,
 
     .projetos p {
         height: 82px !important;
+    }
+
+    .hero h2 {
+        font-size: 21px !important;
     }
 }

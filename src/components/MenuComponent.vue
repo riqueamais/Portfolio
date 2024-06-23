@@ -10,4 +10,4 @@ import { isMenuOpen, toggleMenu } from '@/assets/menu';
             <div class="hamburguer_line hamburguer-bottom"></div>
         </div>
     </div>
-</template>../../public/assets/menu
+</template>
