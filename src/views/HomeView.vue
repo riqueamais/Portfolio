@@ -7,7 +7,7 @@ import { ref, computed } from "vue";
 
 const events = ref([
   {
-    status: 'Estagiário de Front-end - Marcasite', date: '9/11/2023 - Atualmente', icon: 'pi pi-briefcase', color: '#9C27B0', image: 'marcasite.png', text: 'Responsável por um papel fundamental na criação e desenvolvimento de Sites e Landing Pages (LPs). Minhas responsabilidades incluem o design e implementação de interfaces atraentes utilizando tecnologias como Vue.js, HTML, CSS, JavaScript, Bootstrap e transformando- os em um site WordPress. Estou comprometido em oferecer soluções digitais inovadoras, combinando minha expertise técnica com uma abordagem criativa.Trabalhar nesta posição me permite aplicar e aprimorar minhas habilidades diariamente, enquanto contribuo para o sucesso e crescimento contínuo da empresa.'
+    status: 'Estagiário de Front-end - Marcasite', date: '9/11/2023 - 30/06/2024', icon: 'pi pi-briefcase', color: '#9C27B0', image: 'marcasite.png', text: 'Responsável por um papel fundamental na criação e desenvolvimento de Sites e Landing Pages (LPs). Minhas responsabilidades incluem o design e implementação de interfaces atraentes utilizando tecnologias como Vue.js, HTML, CSS, JavaScript, Bootstrap e transformando- os em um site WordPress. Estou comprometido em oferecer soluções digitais inovadoras, combinando minha expertise técnica com uma abordagem criativa.Trabalhar nesta posição me permite aplicar e aprimorar minhas habilidades diariamente, enquanto contribuo para o sucesso e crescimento contínuo da empresa.'
   },
   { status: 'Em Breve', date: '00/00/00000', icon: 'pi pi-cog', color: '#673AB7', image: 'config.png', text: '...' }
 ]);
@@ -79,7 +79,8 @@ const time = computed(() => {
                     {{ slotProps.item.date }}
                   </template>
                   <template #content>
-                    <img v-if="slotProps.item.image" :src="`${slotProps.item.image}`" :alt="slotProps.item.name" class="banner shadow-sm" />
+                    <img v-if="slotProps.item.image" :src="`${slotProps.item.image}`" :alt="slotProps.item.name"
+                      class="banner shadow-sm" />
                     <p>
                       {{ slotProps.item.text }}
                     </p>
@@ -259,5 +260,4 @@ section.carreira {
     flex-direction: row !important;
   }
 }
-
 </style>
